@@ -1,0 +1,17 @@
+Install Helm 3 – Using Script
+I recommend this method if you are setting up a test environment in your local workstation or a server. For project requirements, please follow the binary installation of the specific version that is explained in the next section.
+
+Note: The workstation you are running should have the kubectl context set to the cluster you want to manage with Helm.
+
+Step 1: Download the latest helm 3 installation script.
+
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+Step 2: Add execute permissions to the downloaded script.
+
+chmod +x get_helm.sh
+Step 3: Execute the installation script. This script will automatically find the right binary for your system.
+
+./get_helm.sh
+Step 4: Validate helm installation by executing the helm command.
+
+helm
