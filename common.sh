@@ -21,7 +21,7 @@ sudo apt-get update -y
 
 OS="xUbuntu_22.04"
 
-VERSION="$(echo ${KUBERNETES_VERSION} | grep -oE '[0-9]+\.[0-9]+')"
+CRIO_VERSION=1.26
 
 # Create the .conf file to load the modules at bootup
 cat <<EOF | sudo tee /etc/modules-load.d/crio.conf
