@@ -47,12 +47,9 @@ cat <<EOF | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cr
 deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/ /
 EOF
 
-curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:$CRIO_VERSION/$OS/Release.key | gpg --dearmor > cri-o.key
-sudo mv cri-o.key /etc/apt/trusted.gpg.d/
-sudo chmod 644 /etc/apt/trusted.gpg.d/cri-o.key
-curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | gpg --dearmor > libcontainers.key
-sudo mv libcontainers.key /etc/apt/trusted.gpg.d/
-sudo chmod 644 /etc/apt/trusted.gpg.d/libcontainers.key
+curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:$CRIO_VERSION/$OS/Release.key | gpg --dearmor | sudo apt-key add -
+curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | gpg --dearmor | sudo apt-key add -
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4D64390375060AA4
 
 
 sudo apt-get update
